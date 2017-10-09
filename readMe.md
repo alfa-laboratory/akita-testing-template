@@ -52,8 +52,7 @@
 
 * папка **gradle** содержит в себе все необходимое для работы градловых команд.
       Самое важное здесь:
-      distributionUrl=http\://mvn/artifactory/gradle-wrapper-remote-cache/distributions/gradle-2.14-bin.zip
-      Он иногда перемещается
+      distributionUrl=https://services.gradle.org/distributions/gradle-4.2.1-all.zip
 * файл **build.gradle** содержит  информацию о всех подгружаемых библиотеках и плагинах для нашего тестового проекта
 Плагины для запуска тестов и генерации отчета: 
 ```classpath 'ru.alfalab.gradle:cucumber-reporting-gradle-plugin:0.1.0'
