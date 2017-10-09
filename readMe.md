@@ -51,20 +51,21 @@
 #### Структура проекта
 
 * папка **gradle** содержит в себе все необходимое для работы градловых команд.
-      Самое важное здесь:
-      distributionUrl=https://services.gradle.org/distributions/gradle-4.2.1-all.zip
+   Самое важное здесь:
+   distributionUrl=https://services.gradle.org/distributions/gradle-4.2.1-all.zip
 * файл **build.gradle** содержит  информацию о всех подгружаемых библиотеках и плагинах для нашего тестового проекта
 Плагины для запуска тестов и генерации отчета: 
-```classpath 'ru.alfalab.gradle:cucumber-reporting-gradle-plugin:0.1.0'
+```
+   classpath 'ru.alfalab.gradle:cucumber-reporting-gradle-plugin:0.1.0'
    classpath 'ru.alfalab.gradle:cucumber-parallel-test-gradle-plugin:0.2.1' 
 ```
 про особенности используемых плагинов можно почитать на github тут:
-> https://github.com/alfa-laboratory/cucumber-parallel-test-gradle-plugin; 
-> https://github.com/alfa-laboratory/cucumber-reporting-gradle-plugin
+> https://github.com/alfa-laboratory/cucumber-reporting-gradle-plugin;
+> https://github.com/alfa-laboratory/cucumber-parallel-test-gradle-plugin; <br>
 
 В данном месте указывается пакет, где должны лежать классы с новыми пользовательскими шагами:
 ```
-generateRunner.glue = ["ru.alfabank.steps", "steps"]
+   generateRunner.glue = ["ru.alfabank.steps", "steps"]
 ```
 * параметры по умолчанию для gradle задач указываются в **gradle.properties**
 * файл **settings.gradle** содержит только название проекта
