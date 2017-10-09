@@ -2,10 +2,9 @@
      src="https://github.com/alfa-laboratory/akita/blob/master/akita.png" />
 
 # Awesome testing with Akita
-
-
-Предварительные настройки
--------------------------
+<br><br>
+ 
+## Предварительные настройки
 
 **1. Проверить,что установлена Java 8**
 
@@ -61,8 +60,8 @@
    classpath 'ru.alfalab.gradle:cucumber-parallel-test-gradle-plugin:0.2.1' 
 ```
 про особенности используемых плагинов можно почитать на github тут:
-https://github.com/alfa-laboratory/cucumber-parallel-test-gradle-plugin; 
-https://github.com/alfa-laboratory/cucumber-reporting-gradle-plugin
+> https://github.com/alfa-laboratory/cucumber-parallel-test-gradle-plugin; 
+> https://github.com/alfa-laboratory/cucumber-reporting-gradle-plugin
 
 В данном месте указывается пакет, где должны лежать классы с новыми пользовательскими шагами:
 ```
@@ -125,8 +124,7 @@ generateRunner.glue = ["ru.alfabank.steps", "steps"]
 
 Отчет создается в папке  **build/reports**.  Основным является файл **"overview-features.html"**.
 
-#Особенности 
--------------
+# Особенности 
 1. Важно!!! Плагин, используемый нами для запуска тестов завязан на путь до feature-файлов  src/test/resources/features. Не рекомендуется его изменять.
 
 
