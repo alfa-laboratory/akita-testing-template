@@ -1,8 +1,6 @@
-<img align="left" width="140" height="140" title="akita"
+<img align="left" width="160" height="160" title="akita"
      src="https://github.com/alfa-laboratory/akita/blob/master/akita.png" />
 
-# Akita
-     
 Awesome testing with Akita
 ==========================
 
@@ -64,7 +62,7 @@ Awesome testing with Akita
    classpath 'ru.alfalab.gradle:cucumber-parallel-test-gradle-plugin:0.2.1' 
 ```
 про особенности используемых плагинов можно почитать на github тут:
-https://github.com/alfa-laboratory/cucumber-parallel-test-gradle-plugin
+https://github.com/alfa-laboratory/cucumber-parallel-test-gradle-plugin; 
 https://github.com/alfa-laboratory/cucumber-reporting-gradle-plugin
 
 В данном месте указывается пакет, где должны лежать классы с новыми пользовательскими шагами:
@@ -104,7 +102,6 @@ generateRunner.glue = ["ru.alfabank.steps", "steps"]
 > akitaScenario.write("Текущий URL = " + currentUrl + " \nОжидаемый URL = " + expectedUrl);
 
 #### Запуск тестов
-
 Скачанный проект с тестами нужно открыть как gradle-проект, далее ты можешь запускать тесты одним
 из удобных тебе способов
 * gradle задачи:  **Clean**, **Test**, **GenerateCucumberReport**
@@ -121,7 +118,6 @@ generateRunner.glue = ["ru.alfabank.steps", "steps"]
   Для проектов предусмотрен параллельный запуск всех feature-файлов (для каждого feature-файла создается свой runner), запуск тестов на удаленной машине (-PremoteHub), смена бразера (-Pbrowser=chrome), запуск тестов согласно выставленным на сценариях тегам (-Ptag).
    
 ### Отчет о тестировании
-
    Akita позволяет генерировать красивые отчеты о прошедщем тестировании.
    Генерация отчета осуществляется запуском команды
    ```
