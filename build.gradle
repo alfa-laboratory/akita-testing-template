@@ -1,0 +1,79 @@
+buildscript {
+    repositories { jcenter() }
+
+    dependencies {
+        classpath 'ru.alfalab.gradle:cucumber-reporting-gradle-plugin:0.1.0'
+        classpath 'ru.alfalab.gradle:cucumber-parallel-test-gradle-plugin:0.2.1'
+        classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.10.0'
+    }
+}
+
+repositories {
+    maven{
+        url "https://dl.bintray.com/alfa-laboratory/maven-releases/"
+    }
+    jcenter()
+    mavenCentral()
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'ru.alfalab.cucumber-reporting'
+apply plugin: 'ru.alfalab.cucumber-parallel-test'
+apply plugin: 'license'
+
+description = """Template for your project (CHANGE ME)"""
+generateRunner.glue = ["ru.alfabank.steps", "steps"]
+
+if (project.hasProperty('projVersion')) {
+    project.version = project.projVersion
+} else {
+    project.version = '1.0.0'
+}
+
+dependencies {
+    compile 'ru.alfabank.tests:akita:3.0.16'
+}
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+test {
+    maxParallelForks = 10
+    ignoreFailures = true
+
+    if ("mobile".equalsIgnoreCase(browser)) {
+        browser = "ru.alfabank.tests.core.drivers.MobileChrome";
+    }
+    if ("chrome".equalsIgnoreCase(browser)) {
+        jvmArgs += "-Dselenide.browser=drivers.AkitaChromeDriverProvider"
+    }
+    if (tag) {
+        jvmArgs += "-Dcucumber.options=--tags ${tag}"
+    }
+    if (remoteHub) {
+        jvmArgs += "-Dremote=${remoteHub}"
+    }
+
+    jvmArgs += "-Dbrowser=${browser}"
+    jvmArgs += "-Ddevice=${device}"
+    jvmArgs += "-Dprofile=${profile}"
+    jvmArgs += "-Dfile.encoding=UTF-8"
+    jvmArgs += "-Dselenide.pageLoadStrategy=none"
+
+    reports {
+        html.enabled = false
+        junitXml.enabled = false
+    }
+}
+
+task makeZip(type: Zip) {
+    from('build/reports/cucumber') {
+        into("${project.version}-testReport")
+    }
+}
+
+license {
+    header rootProject.file('HEADER')
+    strictCheck true
+}
