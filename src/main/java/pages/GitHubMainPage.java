@@ -27,4 +27,8 @@ public class GitHubMainPage extends AkitaPage {
     @Name("Поиск")
     public SelenideElement searchField;
 
+    @FindBy(css = ".d-md-flex .rounded-1")
+    @Name("Форма регистрации")
+    public SelenideElement reistrationForm;
+
 }
