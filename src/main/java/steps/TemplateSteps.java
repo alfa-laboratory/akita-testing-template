@@ -15,9 +15,6 @@
  */
 package steps;
 
-import cucumber.api.PendingException;
-import cucumber.api.java.Before;
-import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
 import entities.Repositories;
 import helpers.GitHubSearchPageHelper;
@@ -26,7 +23,6 @@ import ru.alfabank.alfatest.cucumber.api.AkitaScenario;
 
 import java.util.List;
 
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static java.lang.String.format;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.arrayContainingInAnyOrder;
