@@ -3,13 +3,13 @@ buildscript {
 
     dependencies {
         classpath 'ru.alfalab.gradle:cucumber-reporting-gradle-plugin:0.1.0'
-        classpath 'ru.alfalab.gradle:cucumber-parallel-test-gradle-plugin:0.2.1'
+        classpath 'ru.alfalab.gradle:cucumber-parallel-test-gradle-plugin:0.3.1'
         classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.10.0'
     }
 }
 
 repositories {
-    maven{
+    maven {
         url "https://dl.bintray.com/alfa-laboratory/maven-releases/"
     }
     jcenter()
@@ -32,7 +32,7 @@ if (project.hasProperty('projVersion')) {
 }
 
 dependencies {
-    compile 'ru.alfabank.tests:akita:3.1.0'
+    compile 'ru.alfabank.tests:akita:3.5.0'
 }
 
 compileJava.options.encoding = 'UTF-8'
@@ -40,12 +40,17 @@ compileTestJava.options.encoding = 'UTF-8'
 
 test {
     maxParallelForks = 10
-    ignoreFailures = false
+    ignoreFailures = true
     jvmArgs += "-Dprofile=${profile}"
     jvmArgs += "-Dselenide.pageLoadStrategy=none"
 
     //путь к классу с кастомными настройками драйвера.
     jvmArgs += "-Dselenide.browser=ru.alfabank.tests.core.drivers.CustomDriverProvider"
+
+    //параметры galen framework для возможности скролла страницы и снятния полного скриншота страницы
+    jvmArgs += "-Dgalen.browser.screenshots.fullPage=true"
+    jvmArgs += "-Dgalen.browser.screenshots.fullPage.scrollWait=50"
+
 
     if (tag) {
         jvmArgs += "-Dcucumber.options=--tags ${tag}" //параметр для запуска тестов с использование тэгов
