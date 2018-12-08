@@ -57,7 +57,7 @@
 Плагины для запуска тестов и генерации отчета: 
 ```
    classpath 'ru.alfalab.gradle:cucumber-reporting-gradle-plugin:0.1.0'
-   classpath 'ru.alfalab.gradle:cucumber-parallel-test-gradle-plugin:0.2.1' 
+   classpath 'ru.alfalab.gradle:cucumber-parallel-test-gradle-plugin:0.3.1' 
 ```
 про особенности используемых плагинов можно почитать на github тут:
 > https://github.com/alfa-laboratory/cucumber-reporting-gradle-plugin;
