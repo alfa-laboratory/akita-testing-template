@@ -70,6 +70,12 @@ test {
     if (width) {
         jvmArgs += "-Dwidth=${width}" //ширина окна браузера
     }
+    if (maximized) {
+        jvmArgs += "-Dselenide.startMaximized=${maximized}"
+    }
+    if (width && height) {
+        jvmArgs += "-Dselenide.browserSize=${width}x${height}"
+    }
 
     reports {
         html.enabled = false
